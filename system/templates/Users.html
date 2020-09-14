@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +106,24 @@ table.table td .add {
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 	var actions = $("table td:last-child").html();
-    
+    // Append table with add row form on add new button click
+    $(".add-new").click(function(){
+		$(this).attr("disabled", "disabled");
+		var index = $("table tbody tr:last-child").index();
+        var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="Name" id="Name"></td>' +
+            '<td><input type="text" class="form-control" name="Designation" id="Designation"></td>' +
+            '<td><input type="text" class="form-control" name="Police ID" id="Police ID"></td>' +
+            '<td><input type="text" class="form-control" name="Contact Number" id="Contact Number"></td>' +
+            '<td><input type="text" class="form-control" name="Email" id="Email"></td>' +
+            '<td><input type="text" class="form-control" name="Username" id="Username"></td>' +
+            '<td><input type="text" class="form-control" name="Password" id="Password"></td>' +
+			'<td>' + actions + '</td>' +
+        '</tr>';
+    	$("table").append(row);		
+		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+        $('[data-toggle="tooltip"]').tooltip();
+    });
     // Add row on add button click
 	$(document).on("click", ".add", function(){
 		var empty = false;
@@ -149,37 +167,36 @@ $(document).ready(function(){
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Crime <b>Report</b></h2></div>
+                    <div class="col-sm-8"><h2>User <b>Details</b></h2></div>
                     <div class="col-sm-4">
-                        <a href="Criminal Registration.html" class="btn btn-info">Criminal Registration</a>
                         <a href="Criminals.html" class="btn btn-info">Criminal Data</a>
-                        <a href="Users.html" class="btn btn-info">User Data</a>
-                        
+                        <a href="Crime.html" class="btn btn-info">Crime Data</a>
+                        <a class="btn btn-info add-new">Add Users</a>
                     </div>
                 </div>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>FIR Number</th>
-                        <th>Date of Crime</th>
-                        <th>Officer On Duty</th>
-                        <th>Victims</th>
-                        <th>Crime Type</th>
-                        <th>Field of Interest</th>
-                        <th>Crime Description</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Police ID</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Passowrd</th>
                         <th>Actions</th>
-                    </trn
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>123456789</td>
-                        <td>22.09.2020</td>
+                        <td>Bruce Wayne</td>
                         <td>Batman</td>
-                        <td>Joker</td>
-                        <td>Murder</td>
-                        <td>Social Security</td>
-                        <td>This is just a sample description. More will be added later</td>
+                        <td>12824205</td>
+                        <td>01925478563</td>
+                        <td>acbd@gmail.com</td>
+                        <td>SampleUsername</td>
+                        <td>SamplePassword</td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -187,13 +204,13 @@ $(document).ready(function(){
                         </td>
                     </tr>
                     <tr>
-                        <td>112233445</td>
-                        <td>23.09.202</td>
+                        <td>Peter Parker</td>
                         <td>Spiderman</td>
-                        <td>Goblin</td>
-                        <td>Street Fight</td>
-                        <td>Social Violence</td>
-                        <td>This is just a sample description. More will be added later</td>
+                        <td>25641561</td>
+                        <td>01925478563</td>
+                        <td>acbd@gmail.com</td>
+                        <td>SampleUsername</td>
+                        <td>SamplePassword</td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -201,13 +218,13 @@ $(document).ready(function(){
                         </td>
                     </tr>
                     <tr>
-                        <td>998877665</td>
-                        <td>24.09.2020</td>
+                        <td>Barry Allen</td>
                         <td>The Flash</td>
-                        <td>Harrison Wells</td>
-                        <td>Time Maniulation</td>
-                        <td>Civilization Crisis</td>
-                        <td>This is just a sample description. More will be added later</td>
+                        <td>24128692</td>
+                        <td>01925478563</td>
+                        <td>acbd@gmail.com</td>
+                        <td>SampleUsername</td>
+                        <td>SamplePassword</td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

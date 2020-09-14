@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '9us+0#w_t$n3n(7hcb+9-p*25tp$9w^3e*&+f=nt*u7@42rjrg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'CriminalDB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/suhail/workspace/Web Dev/Django/CriminalDB/templates/'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIR= [
-    os.path.join(BASE_DIR, '/home/suhail/workspace/Web Dev/Django/CriminalDB/CriminalDB/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 STATIC_ROOT= os.path.join(BASE_DIR,'assets')
