@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+<head>
+<title>User Sign up Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link rel="stylesheet" href="{% static 'css/Registration.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="main-w3layouts wrapper">
+    <h1>User Sign up Form</h1>
+	<div class="main-agileinfo">
+		<div class="agileits-top">
+		<form action="#" method="post">
+		{% csrf_token %}
+        <input class="text" type="text" name="policeID" placeholder="Police ID" required="">
+        <input class="text" type="text" name="FullName" placeholder="Full Name" required="">
+        <input class="text" type="text" name="Designation" placeholder="Designation" required="">
+        <input class="text" type="text" name="ContactNumber" placeholder="Contact Number" required="">
+        <input class="text" type="text" name="EmailAddress" placeholder="Email Address" required="">
+        <input class="text" type="text" name="Username" placeholder="Username" required="">
+        <input class="text" type="password" name="Password" placeholder="Password" required="">   
+        <div class="wthree-text">
+        <div class="clear"> </div>
+        </div>
+        <input type="submit" value="Sign Up">
+        </form>
+    </div>
+		</div>
+		<ul class="bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

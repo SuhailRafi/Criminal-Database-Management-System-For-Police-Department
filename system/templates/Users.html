@@ -111,13 +111,14 @@ $(document).ready(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("table tbody tr:last-child").index();
         var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="Police ID" id="Police ID"></td>' +
             '<td><input type="text" class="form-control" name="Name" id="Name"></td>' +
             '<td><input type="text" class="form-control" name="Designation" id="Designation"></td>' +
-            '<td><input type="text" class="form-control" name="Police ID" id="Police ID"></td>' +
             '<td><input type="text" class="form-control" name="Contact Number" id="Contact Number"></td>' +
-            '<td><input type="text" class="form-control" name="Email" id="Email"></td>' +
-            '<td><input type="text" class="form-control" name="Username" id="Username"></td>' +
-            '<td><input type="text" class="form-control" name="Password" id="Password"></td>' +
+            '<td><input type="text" class="form-control" name="Role" id="Role"></td>' +
+            '<td><input type="email" class="form-control" name="Email" id="Email"></td>' +
+            '<td><input type="password" class="form-control" name="Username" id="Username"></td>' +
+            '<td><input type="password" class="form-control" name="Password" id="Password"></td>' +
 			'<td>' + actions + '</td>' +
         '</tr>';
     	$("table").append(row);		
@@ -169,32 +170,34 @@ $(document).ready(function(){
                 <div class="row">
                     <div class="col-sm-8"><h2>User <b>Details</b></h2></div>
                     <div class="col-sm-4">
-                        <a href="Criminals.html" class="btn btn-info">Criminal Data</a>
-                        <a href="Crime.html" class="btn btn-info">Crime Data</a>
-                        <a class="btn btn-info add-new">Add Users</a>
+                        <a href=" {% static 'Criminals.html' %}" class="btn btn-info">Criminal Data</a>
+                        <a href="{% static 'Crime.html' %}" class="btn btn-info">Crime Data</a>
+                        <a class="btn btn-info add-new" type='submit'>Add Users</a>
                     </div>
                 </div>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Designation</th>
                         <th>Police ID</th>
+                        <th>Name</th>
+                        <th>Designation</th> 
                         <th>Contact Number</th>
                         <th>Email</th>
                         <th>Username</th>
+                        <th>role</th>
                         <th>Passowrd</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>12824205</td>
                         <td>Bruce Wayne</td>
                         <td>Batman</td>
-                        <td>12824205</td>
                         <td>01925478563</td>
                         <td>acbd@gmail.com</td>
+                        <td>User</td>
                         <td>SampleUsername</td>
                         <td>SamplePassword</td>
                         <td>
@@ -204,11 +207,12 @@ $(document).ready(function(){
                         </td>
                     </tr>
                     <tr>
+                        <td>25641561</td>
                         <td>Peter Parker</td>
                         <td>Spiderman</td>
-                        <td>25641561</td>
                         <td>01925478563</td>
                         <td>acbd@gmail.com</td>
+                        <td>Admin</td>
                         <td>SampleUsername</td>
                         <td>SamplePassword</td>
                         <td>
@@ -218,11 +222,12 @@ $(document).ready(function(){
                         </td>
                     </tr>
                     <tr>
+                        <td>24128692</td>
                         <td>Barry Allen</td>
                         <td>The Flash</td>
-                        <td>24128692</td>
                         <td>01925478563</td>
                         <td>acbd@gmail.com</td>
+                        <td>User</td>
                         <td>SampleUsername</td>
                         <td>SamplePassword</td>
                         <td>
