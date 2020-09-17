@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login
 from .models import police
 
 # Create your views here.
@@ -17,40 +16,38 @@ def signup (request):
         username = request.POST ['Username']
         password = request.POST ['Password']
         
-        x = police.objects.create(policeID = policeID, \
+        user = police.objects.create(policeID = policeID, \
             fullname = fullname, designation = designation, \
                 contactNumber = contactNumber, \
                     emailAddress = emailAddress, \
                         username = username, \
                         password = password )
 
-        x.save()
+        user.save()
 
         return redirect ('/login')
 
     else:
        return render (request, 'signup.html')
 
-def login (request):
+def user_login (request):
 
     if request.method == 'POST':
         username = request.POST ['Username']
         password = request.POST ['Password']
 
-        x = auth.authenticate ( username = username, \
+        user = authenticate ( request, username = username, \
             password = password )
+  
+        if user is not None:
+            login (request, user)
+            return redirect ('http://127.0.0.1:8000/users/')
 
-        if x is None:
-
-            redirect ('/')
         else: 
-
-            redirect ('/Users')
+            return redirect ('http://127.0.0.1:8000/login/')
 
     else:    
         return render (request, 'login.html')
-      
-
 
 def users (request):
             
