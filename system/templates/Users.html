@@ -99,7 +99,7 @@ table.table .form-control.error {
     border-color: #f50000;
 }
 table.table td .add {
-    display: none;
+display: none;                                              
 }
 </style>
 <script>
@@ -185,57 +185,29 @@ $(document).ready(function(){
                         <th>Contact Number</th>
                         <th>Email</th>
                         <th>Username</th>
-                        <th>role</th>
+                        <th>Role</th>
                         <th>Passowrd</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {%for user in users %}
                     <tr>
-                        <td>12824205</td>
-                        <td>Bruce Wayne</td>
-                        <td>Batman</td>
-                        <td>01925478563</td>
-                        <td>acbd@gmail.com</td>
-                        <td>User</td>
-                        <td>SampleUsername</td>
-                        <td>SamplePassword</td>
+                        <td>{{user.policeID}}</td>
+                        <td>{{user.fullname}}</td>
+                        <td>{{user.designation}}</td>
+                        <td>{{user.contactNumber}}</td>
+                        <td>{{user.emailAddress}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.role}}</td>
+                        <td>{{user.password}}</td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>25641561</td>
-                        <td>Peter Parker</td>
-                        <td>Spiderman</td>
-                        <td>01925478563</td>
-                        <td>acbd@gmail.com</td>
-                        <td>Admin</td>
-                        <td>SampleUsername</td>
-                        <td>SamplePassword</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>24128692</td>
-                        <td>Barry Allen</td>
-                        <td>The Flash</td>
-                        <td>01925478563</td>
-                        <td>acbd@gmail.com</td>
-                        <td>User</td>
-                        <td>SampleUsername</td>
-                        <td>SamplePassword</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
+                    {%endfor%}
                 </tbody>
             </table>
         </div>
